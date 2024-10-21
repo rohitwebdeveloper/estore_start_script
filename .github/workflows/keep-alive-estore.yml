@@ -1,0 +1,13 @@
+name: Keep Backend Alive
+
+on:
+  schedule:
+    - cron: '*/4 * * * *'  # Runs every 4 minutes
+
+jobs:
+  ping-server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send a ping to the backend
+        run: |
+          curl -I https://estore-backend.onrender.com/api/products/category/electronics
